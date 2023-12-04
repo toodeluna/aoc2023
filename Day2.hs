@@ -2,6 +2,7 @@ import Data.Char (isSpace)
 import Data.List (dropWhile, dropWhileEnd, stripPrefix)
 import Data.List.Split (endBy)
 import Data.Maybe (fromJust)
+import Utils.StringUtils
 
 data Game = Game Int [CubeSet]
   deriving (Show)
@@ -11,9 +12,6 @@ data CubeSet = CubeSet {red :: Int, green :: Int, blue :: Int}
 
 totalSet :: CubeSet
 totalSet = CubeSet {red = 12, green = 13, blue = 14}
-
-trimString :: String -> String
-trimString = dropWhile isSpace . dropWhileEnd isSpace
 
 parseSets :: [String] -> [CubeSet]
 parseSets = map parseSet
